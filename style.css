@@ -1,0 +1,225 @@
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  background: url('/Background.png') no-repeat center center/cover;
+  background-color: #330000;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* Valentine's Day Text */
+.header-text {
+  font-size: 20px;
+  margin-top: 10px;
+  color: #ff9aa2;
+  font-family: cursive;
+}
+
+.valentine-text {
+  font-size: 36px;
+  font-weight: bold;
+  color: #a0142e;
+  text-shadow: 2px 2px 8px rgba(255, 77, 109, 0.8);
+  margin-bottom: 20px;
+  font-family:'Lucida Sans';
+}
+
+/* Polaroid Album Collage */
+.album-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  width: 320px;
+  margin-bottom: 35px;
+  margin-left: 10%;
+  position: relative;
+}
+
+/* Polaroid Frame */
+.polaroid {
+  width: 120px;
+  height: 150px;
+  background: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+}
+
+/* Image Inside Polaroid */
+.polaroid img {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+/* Caption Space (Polaroid Effect) */
+.polaroid::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 20%;
+}
+
+/* Arranging the Photos Like Your Reference */
+.polaroid-1 { transform: rotate(-5deg); }
+.polaroid-2 { transform: rotate(3deg); }
+.polaroid-3 { transform: rotate(-2deg); }
+.polaroid-4 { transform: rotate(5deg); }
+
+/* Click to Smile Text */
+.click-text {
+  font-size: 18px;
+  margin-top: 20px;
+  color: #ff9aa2;
+  font-style: italic;
+  text-shadow: 2px 2px 8px rgba(255, 153, 170, 0.7);
+  animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 2px 2px 8px rgba(255, 153, 170, 0.7); }
+  to { text-shadow: 4px 4px 15px rgba(255, 153, 170, 1); }
+}
+
+/* Record Player */
+.record-player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  
+}
+
+svg {
+  width: 200px;
+  height: 200px;
+}
+
+/* Play Button */
+#play-button {
+  margin-top: 20px;
+  padding: 12px 25px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #d24a89;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#play-button:hover {
+  background-color: #ff3b3b;
+}
+
+/* Spinning Vinyl */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.spin {
+  animation: spin 4s linear infinite;
+}
+
+/* Floating Hearts - Now Covering the Whole Page */
+.heart {
+  position: fixed;
+  bottom: 0;
+  font-size: 24px;
+  opacity: 1;
+  animation: floating-hearts linear infinite;
+  transform: translateX(-50%);
+}
+
+@keyframes floating-hearts {
+  0% {
+      transform: translateY(0) scale(0.8);
+      opacity: 1;
+  }
+  100% {
+      transform: translateY(-100vh) scale(1.2);
+      opacity: 0;
+  }
+}
+
+/* Polaroid Album Hover Effect (Zoom-in) */
+.polaroid {
+  transition: transform 0.3s ease-in-out;
+}
+
+.polaroid:hover {
+  transform: scale(1.2);
+}
+
+/* GIF Popup */
+.gif-popup {
+  position: fixed;
+  bottom: -300px;  /* Initially off-screen at the bottom */
+  z-index: 9999;
+  display: none; /* Hidden initially */
+  width: 400px; /* GIF size */
+  height: 400px; /* GIF size */
+  transition: transform 1s ease-out, opacity 1s ease-out;
+}
+
+.gif-popup img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Animation when the gif pops up from the bottom */
+@keyframes slideUp {
+  0% {
+    transform: scale(0.8); /* Start smaller */
+    opacity: 0;
+    bottom: -300px;  /* Start off-screen */
+  }
+  50% {
+    transform: scale(1.2); /* Enlarge while moving */
+    opacity: 1;
+    bottom: 20%; /* Midway up the screen */
+  }
+  100% {
+    transform: scale(1); /* Set to normal size */
+    opacity: 1;
+    bottom: 10%; /* Final position near the bottom */
+  }
+}
+
+/* When showing the gif (added dynamically with JS) */
+.show-gif {
+  display: block;
+  animation: slideUp 1.5s ease-out forwards; /* Smooth rise from the bottom */
+}
+
+/* Position the GIF on the left */
+.left-position {
+  left: 0;
+  right: auto;
+}
+
+/* Position the GIF on the right */
+.right-position {
+  right: 0;
+  left: auto;
+}
+
+
