@@ -17,6 +17,7 @@ body {
 .header-text {
   font-size: 20px;
   margin-top: 10px;
+  margin-left: 15px;
   color: #ff9aa2;
   font-family: cursive;
 }
